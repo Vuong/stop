@@ -1,8 +1,8 @@
 import * as ts from 'typescript';
 
-let transformer: ts.TransformerFactory<ts.SourceFile> = context => {
+const transformer: ts.TransformerFactory<ts.SourceFile> = context => {
   return sourceFile => {
-    let visitor = (node: ts.Node): ts.Node => {
+    const visitor = (node: ts.Node): ts.Node => {
       console.log(node.kind, `\t# ts.SyntaxKind.${ts.SyntaxKind[node.kind]}`);
       return ts.visitEachChild(node, visitor, context);
     };
