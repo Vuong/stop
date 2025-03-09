@@ -1,15 +1,15 @@
 import * as ts from 'typescript';
 
-let transformerProgram = () => {
-  let transformerFactory: ts.TransformerFactory<ts.SourceFile> = context => {
+const transformerProgram = () => {
+  const transformerFactory: ts.TransformerFactory<ts.SourceFile> = context => {
     return sourceFile => {
-      let visitor = (node: ts.Node): ts.Node => {
+      const visitor = (node: ts.Node): ts.Node => {
         if (ts.isImportDeclaration(node) && ts.isStringLiteral(node.moduleSpecifier)) {
           // Find the import location in the file system using require.resolve
-          let pkgEntry = require.resolve(`${node.moduleSpecifier.text}`);
+          const pkgEntry = require.resolve(`${node.moduleSpecifier.text}`);
 
           // Create another program
-          let innerProgram = ts.createProgram([pkgEntry], {
+          const innerProgram = ts.createProgram([pkgEntry], {
             // Important to set this to true!
             allowJs: true,
           });
