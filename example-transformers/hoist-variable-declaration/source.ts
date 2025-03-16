@@ -1,4 +1,4 @@
 function functionOne() {
-  let innerOne = true;
-  let innerTwo = true;
+  const innerOne = true;
+  const innerTwo = true;
 }
