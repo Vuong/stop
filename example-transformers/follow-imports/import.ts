@@ -1,3 +1,3 @@
-export let hello = 'world';
+export const hello = 'world';
 
 export default 'hello';
