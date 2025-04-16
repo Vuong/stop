@@ -1,1 +1,1 @@
-let hello = 'world', hello_1 = "world";
+const hello = 'world', hello_1 = "world";
